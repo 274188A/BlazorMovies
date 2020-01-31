@@ -1,4 +1,4 @@
-using AutoMapper;
+﻿using AutoMapper;
 using BlazorMovies.Server.Helpers;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
@@ -76,7 +76,7 @@ namespace BlazorMovies.Server
             }
 
             app.UseStaticFiles();
-            app.UseClientSideBlazorFiles<Client.Startup>();
+            app.UseClientSideBlazorFiles<Client.Program>();
 
             app.UseRouting();
             app.UseAuthentication();
@@ -85,7 +85,7 @@ namespace BlazorMovies.Server
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapDefaultControllerRoute();
-                endpoints.MapFallbackToClientSideBlazor<Client.Startup>("index.html");
+                endpoints.MapFallbackToClientSideBlazor<Client.Program>("index.html");
             });
         }
     }
